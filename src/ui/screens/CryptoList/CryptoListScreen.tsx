@@ -1,11 +1,16 @@
-import { View, StyleSheet, Animated } from "react-native";
+import { View, StyleSheet, Animated, ActivityIndicator } from "react-native";
 import React from "react";
 import { CryptoCard } from "../../components/CryptoCard";
 import CryptoListPresenter from "./CryptoList.Presenter";
 import { SearchInput } from "../../components/SearchInput";
+import { colors } from "../../../utilities/color";
 
 export const CryptoListScreen = () => {
-  const { filtered, scrollY } = CryptoListPresenter();
+  const { filtered, scrollY, isLoading } = CryptoListPresenter();
+
+  if (isLoading) {
+    return <ActivityIndicator style={{ marginTop: 20 }} />;
+  }
 
   return (
     <View style={styles.container}>
@@ -28,6 +33,7 @@ export const CryptoListScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F8FAFC",
+    paddingTop: 20,
+    backgroundColor: colors.secondary,
   },
 });

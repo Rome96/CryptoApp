@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useCryptoStore } from '../../stores/useCryptoStore';
 
 const CryptoListPresenter = () => {
-  const { fetchCryptos, cryptos, filter, setFilter } = useCryptoStore();
+  const { fetchCryptos, cryptos, filter, isLoading } = useCryptoStore();
 
   const scrollY = React.useRef(new Animated.Value(0)).current;
 
@@ -17,6 +17,7 @@ const CryptoListPresenter = () => {
   return {
     filtered,
     scrollY,
+    isLoading,
   }
 }
 

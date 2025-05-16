@@ -1,5 +1,6 @@
 import { View, TextInput, StyleSheet } from "react-native";
 import { useCryptoStore } from "../stores/useCryptoStore";
+import { colors } from "../../utilities/color";
 
 
 
@@ -23,15 +24,15 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   input: {
-    backgroundColor: "#2c2c2c",
-    color: "#f0f0f0",
+    backgroundColor: colors.primary,
+    color: colors.alto,
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingVertical: 15,
     borderRadius: 10,
     fontSize: 16,
-    shadowColor: "#000",
+    shadowColor: colors.primary,
     shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.4,
     shadowRadius: 4,
     elevation: 5,
   },
