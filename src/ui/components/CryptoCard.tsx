@@ -23,7 +23,7 @@ export const CryptoCard = ({ crypto, index, scrollY }: ICryptoCardProps) => {
   });
 
   return (
-    <TouchableOpacity onPress={() => router.push(`/details?id=${crypto.id}`)}>
+    <TouchableOpacity activeOpacity={0.7} onPress={() => router.push(`/details?id=${crypto.id}`)}>
       <Animated.View style={[styles.card, { transform: [{ scale }] }]}>
         <View>
           <View style={styles.header}>
