@@ -65,6 +65,4 @@ npm test
 yarn test
 ```
 
-![Demo GIF](./assets/demo1.gif)
-![Demo GIF](./assets/demo2.gif)
-![Demo GIF](./assets/demo3.gif)
+![Demo GIF](./assets/demo1.gif) ![Demo GIF](./assets/demo2.gif) ![Demo GIF](./assets/demo3.gif)
