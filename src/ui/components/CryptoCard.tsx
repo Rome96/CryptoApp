@@ -3,6 +3,7 @@ import { Crypto } from "../../domain/entities/Crypto";
 import { useRouter } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { colors } from "../../utilities/color";
+import { ITEM_MARGIN_BOTTOM, ITEM_PADDING, ITEM_SIZE } from "../../utilities/generalFunction";
 
 interface ICryptoCardProps {
   crypto: Crypto;
@@ -10,9 +11,13 @@ interface ICryptoCardProps {
   scrollY: Animated.Value;
 }
 
-export const ITEM_MARGIN_BOTTOM = 20;
-export const ITEM_PADDING = 20;
-export const ITEM_SIZE = 53 + ITEM_PADDING * 2 + ITEM_MARGIN_BOTTOM; // this height if one item in the list
+/**
+ * CryptoCard component renders individual cryptocurrency information inside an animated card.
+ * It scales the card size based on scroll position for a smooth animation effect.
+ *
+ * @param {ICryptoCardProps} props - Props containing crypto data, index, and scroll animated value.
+ * @returns {JSX.Element} Animated card component with crypto info and navigation on press.
+ */
 
 export const CryptoCard = ({ crypto, index, scrollY }: ICryptoCardProps) => {
   const router = useRouter();

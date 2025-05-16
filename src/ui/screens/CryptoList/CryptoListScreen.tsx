@@ -1,11 +1,22 @@
-import { View, StyleSheet, Animated, ActivityIndicator, Dimensions, Text } from "react-native";
 import React from "react";
+import { LineChart } from "react-native-chart-kit";
+import { View, StyleSheet, Animated, ActivityIndicator, Dimensions, Text } from "react-native";
+
+import { colors } from "../../../utilities/color";
 import { CryptoCard } from "../../components/CryptoCard";
 import CryptoListPresenter from "./CryptoList.Presenter";
 import { SearchInput } from "../../components/SearchInput";
-import { colors } from "../../../utilities/color";
-import { LineChart } from "react-native-chart-kit";
+
 const screenWidth = Dimensions.get("window").width;
+
+/**
+ * Screen component that displays a searchable and scrollable list of cryptocurrencies.
+ * It shows a loading indicator while fetching data, a 24-hour variation chart, and
+ * a list of filtered crypto cards with scroll animations.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered CryptoListScreen component.
+ */
 
 export const CryptoListScreen = () => {
   const { filtered, scrollY, isLoading, chartData } = CryptoListPresenter();

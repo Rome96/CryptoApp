@@ -2,7 +2,13 @@ import { View, TextInput, StyleSheet } from "react-native";
 import { useCryptoStore } from "../stores/useCryptoStore";
 import { colors } from "../../utilities/color";
 
-
+/**
+ * SearchInput component provides a styled text input for filtering the list of cryptocurrencies.
+ * It updates the global filter state in the crypto store as the user types.
+ *
+ * @component
+ * @returns {JSX.Element} A styled input field to enter search queries.
+ */
 
 export const SearchInput = () => {
   const {  setFilter } = useCryptoStore();

@@ -20,6 +20,18 @@ const chartConfig = {
   },
 };
 
+/**
+ * CryptoDetailScreen component displays detailed information about a cryptocurrency,
+ * including its name, symbol, current price, and a line chart of percent changes over different periods.
+ *
+ * It uses the CryptoDetailPresenter to fetch and manage the crypto data and animations.
+ *
+ * @param {Object} props - Component props
+ * @param {string | undefined} props.id - The unique identifier of the cryptocurrency to display details for.
+ * 
+ * @component
+ * @returns {JSX.Element} The crypto detail screen UI with animated card and line chart.
+ */
 
 export default function CryptoDetailScreen({ id }: { id: string | undefined }) {
   const { crypto, loading, opacity, translateY } = CryptoDetailPresenter({ id });
