@@ -15,6 +15,6 @@ export class CryptoApi implements CryptoRepository {
     const response = await fetch(`${PATH.getCryptoById}${id}`);
     const data = await response.json();
     const item = data[0];
-    return new Crypto(item.id, item.symbol, item.name, parseFloat(item.price_usd));
+    return new Crypto(item.id, item.symbol, item.name, parseFloat(item.price_usd), item.percent_change_1h, item.percent_change_24h, item.percent_change_7d);
   }
 }
