@@ -13,6 +13,11 @@ const chartConfig = {
   color: (opacity = 1) => `rgba(0, 122, 255, ${opacity})`,
   labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
   barPercentage: 0.5,
+  propsForDots: {
+    r: "4",
+    strokeWidth: "2",
+    stroke: colors.green,
+  },
 };
 
 
@@ -58,7 +63,6 @@ export default function CryptoDetailScreen({ id }: { id: string | undefined }) {
           <Text style={styles.symbol}>({crypto.symbol.toUpperCase()})</Text>
         </View>
         <Text style={styles.price}>${crypto.price_usd.toFixed(2)} USD</Text>
-
         <LineChart
           bezier
           fromZero

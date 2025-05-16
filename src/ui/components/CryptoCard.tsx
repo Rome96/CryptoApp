@@ -18,9 +18,10 @@ export const CryptoCard = ({ crypto, index, scrollY }: ICryptoCardProps) => {
   const router = useRouter();
 
   const scale = scrollY.interpolate({
-    inputRange: [-1, 0, ITEM_SIZE * index, ITEM_SIZE * (index + 3)],
-    outputRange: [1, 1, 1, 0],
-  });
+    inputRange: [-1, 0, ITEM_SIZE * index, ITEM_SIZE * (index + 2)],
+    outputRange: [1, 1, 1, 0.9],
+    extrapolate: "clamp",
+    });
 
   return (
     <TouchableOpacity activeOpacity={0.7} onPress={() => router.push(`/details?id=${crypto.id}`)}>
