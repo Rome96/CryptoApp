@@ -1,20 +1,25 @@
-import { View, TextInput, FlatList, StyleSheet } from "react-native";
-import React, { useEffect } from "react";
-import { useCryptoStore } from "../../stores/useCryptoStore";
+import { View, StyleSheet, Animated } from "react-native";
+import React from "react";
 import { CryptoCard } from "../../components/CryptoCard";
 import CryptoListPresenter from "./CryptoList.Presenter";
+import { SearchInput } from "../../components/SearchInput";
 
 export const CryptoListScreen = () => {
-  const { setFilter, filtered } = CryptoListPresenter();
-
+  const { filtered, scrollY } = CryptoListPresenter();
 
   return (
     <View style={styles.container}>
-      <TextInput placeholder="Search" onChangeText={setFilter} />
-      <FlatList
+      <SearchInput  />
+      <Animated.FlatList
         data={filtered}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <CryptoCard crypto={item} />}
+        contentContainerStyle={{ padding: 20 }}
+        renderItem={({ item, index }) => (
+          <CryptoCard crypto={item} index={index} scrollY={scrollY} />
+        )}
+        onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], {
+          useNativeDriver: true,
+        })}
       />
     </View>
   );
@@ -23,6 +28,6 @@ export const CryptoListScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
-  }
-})
+    backgroundColor: "#F8FAFC",
+  },
+});
