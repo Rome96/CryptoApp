@@ -21,6 +21,22 @@ const CryptoDetailPresenter = ({ id }: { id: string | undefined }) => {
     fetchCrypto();
   }, [id]);
 
+  useEffect(() => {
+    if (crypto) {
+      Animated.timing(opacity, {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true,
+      }).start();
+
+      Animated.timing(translateY, {
+        toValue: 0,
+        duration: 500,
+        useNativeDriver: true,
+      }).start();
+    }
+  }, [crypto]);
+
   return {
     crypto,
     loading,

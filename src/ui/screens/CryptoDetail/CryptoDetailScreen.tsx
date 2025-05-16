@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { View, Text, ActivityIndicator, StyleSheet, Animated } from "react-native";
 import CryptoDetailPresenter from "./CryptoDetail.Presenter";
 import { Stack } from "expo-router";
@@ -7,24 +7,8 @@ import { colors } from "../../../utilities/color";
 export default function CryptoDetailScreen({ id }: { id: string | undefined }) {
   const { crypto, loading, opacity, translateY } = CryptoDetailPresenter({ id });
 
-  useEffect(() => {
-    if (crypto) {
-      Animated.timing(opacity, {
-        toValue: 1,
-        duration: 500,
-        useNativeDriver: true,
-      }).start();
-
-      Animated.timing(translateY, {
-        toValue: 0,
-        duration: 500,
-        useNativeDriver: true,
-      }).start();
-    }
-  }, [crypto]);
-
   if (loading) {
-    return <ActivityIndicator style={{ marginTop: 20 }} />;
+    return <ActivityIndicator testID="ActivityIndicator" style={{ marginTop: 20 }} />;
   }
 
   if (!crypto) {

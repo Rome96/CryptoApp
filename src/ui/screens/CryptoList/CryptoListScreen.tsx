@@ -9,7 +9,7 @@ export const CryptoListScreen = () => {
   const { filtered, scrollY, isLoading } = CryptoListPresenter();
 
   if (isLoading) {
-    return <ActivityIndicator style={{ marginTop: 20 }} />;
+    return <ActivityIndicator testID="loading-indicator" style={{ marginTop: 20 }} />;
   }
 
   return (
